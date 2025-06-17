@@ -28,8 +28,14 @@ class Fixed
 		float	operator - (const Fixed& toCompare) const;
 		float	operator * (const Fixed& toCompare) const;
 		float	operator / (const Fixed& toCompare) const;
-		Fixed&	operator ++(int toIncrement);
-		Fixed&	operator ++(void);
+		Fixed	operator ++(void);
+		Fixed	operator ++(int);
+		Fixed	operator --(void);
+		Fixed	operator --(int);
+		static Fixed&	min(Fixed& n1, Fixed& n2);
+		static const Fixed&	min(const Fixed& n1, const Fixed& n2);
+		static Fixed&	max(Fixed& n1, Fixed& n2);
+		static const Fixed&	max(const Fixed& n1, const Fixed& n2);
 
 	private:
 		int					value;

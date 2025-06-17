@@ -100,12 +100,61 @@ float	Fixed::operator / (const Fixed& toAdd) const
 	return (this->toFloat() / toAdd.toFloat());
 }
 
-// Fixed&	operator ++(const Fixed& toIncrement)
-// {
-// 	float a = toIncrement.toFloat();
-// 	a += (1 >> fractional);
-// 	return (Fixed(a));
-// }
+Fixed	Fixed::operator ++(void)
+{
+	this->value += 1;
+	return (*this);
+}
+
+Fixed	Fixed::operator ++(int)
+{
+	Fixed	copy(*this);
+
+	this->value += 1;
+	return (copy);
+}
+
+Fixed	Fixed::operator --(void)
+{
+	this->value -= 1;
+	return (*this);
+}
+
+Fixed	Fixed::operator --(int)
+{
+	Fixed	copy(*this);
+
+	this->value -= 1;
+	return (copy);
+}
+
+Fixed&	Fixed::min(Fixed& n1, Fixed& n2)
+{
+	if (n1.value < n2.value)
+		return (n1);
+	return (n2);
+}
+
+const Fixed&	Fixed::min(const Fixed& n1, const Fixed& n2)
+{
+	if (n1.value < n2.value)
+		return (n1);
+	return (n2);
+}
+
+Fixed&	Fixed::max(Fixed& n1, Fixed& n2)
+{
+	if (n1.value > n2.value)
+		return (n1);
+	return (n2);
+}
+
+const Fixed&	Fixed::max(const Fixed& n1, const Fixed& n2)
+{
+	if (n1.value > n2.value)
+		return (n1);
+	return (n2);
+}
 
 Fixed::~Fixed(void)
 {
