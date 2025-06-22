@@ -16,6 +16,7 @@ class Point
 		Point& operator = (const Point&);
 		float	getX(void) const;
 		float	getY(void) const;
+		bool    isSame(Point const b) const;
 
 	private:
 		Fixed const x;

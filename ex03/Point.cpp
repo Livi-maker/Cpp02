@@ -28,6 +28,13 @@ float	Point::getY(void) const
 	return (y.toFloat());
 }
 
+bool	Point::isSame(Point const b) const
+{
+	if (this->getX() == b.getX() && this->getY() == b.getY())
+		return (true);
+	return (false);
+ }
+
 float	vectorialProduct(Point const a, Point const b, Point const point)
 {
 	const float	aX = a.getX();
@@ -45,7 +52,12 @@ bool	bsp(Point const a, Point const b, Point const c, Point const point)
 	float	aAngle;
 	float	bAngle;
 	float	cAngle;
-
+ 
+	if (a.isSame(b) == true || b.isSame(c) == true || c.isSame(a) == true)
+	{
+		std::cout << "not a triangle" << std::endl;
+		return (false);
+	}
 	aAngle = vectorialProduct(a, b, point);
 	bAngle = vectorialProduct(b, c, point);
 	cAngle = vectorialProduct(c, a, point);
