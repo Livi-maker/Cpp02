@@ -23,7 +23,7 @@ class Point
 		Fixed const y;
 };
 
-bool bsp(Point const a, Point const b, Point const c, Point const point);
-float   vectorialProduct(Point const a, Point const b, Point const point);
+bool	bsp(Point const a, Point const b, Point const c, Point const point);
+float	vectorialProduct(Point const a, Point const b, Point const point);
 
 #endif
